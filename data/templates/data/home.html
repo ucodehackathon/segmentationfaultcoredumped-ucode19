@@ -1,0 +1,26 @@
+{% extends "data/base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-md-8 pad">
+    {% for session in list_sessions %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="text-muted">{{ session.date|date:"F d, Y" }}</small>
+              <a href="{% url 'del-session' session.id %}" class="pull-right ref">
+                  <small class="text-muted">Delete</small>
+              </a>
+            </div>
+            <h2><a class="article-title" href="{% url 'detail-session' session.id %}">{{ session.name }}</a></h2>
+            <p class="article-content">{{ session.training }}</p>
+          </div>
+        </article>
+    {% endfor %}
+</div>
+    <div class="col-md-4 pad">
+        <div id="manage-sessions" class="col-xs-12 sticky-top pad">
+            <a href="{% url 'new-session' %}" class="btn btn-dark btn-lg btn-block">Add new session</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

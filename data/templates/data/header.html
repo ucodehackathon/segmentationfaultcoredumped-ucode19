@@ -1,0 +1,25 @@
+<!-- Crear el header aqui -->
+<nav class="navbar navbar-expand-sm navbar-light" style="background-color: #212121;">
+      <div class="container">
+        <ul class="navbar-nav ml-auto">
+          <a href="{% url 'home' %}" class="navbar-brand">
+            <img src="/static/img/logo_adidas.png" width="50" height="35" alt="Adidas">
+          </a>
+            {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" style="color:white"  href="{% url 'home' %}">Home</a></li>
+            {% else %}
+                <li class="nav-item"><a class="nav-link" style="color:white"  href="{% url 'home' %}">Home</a></li>
+             {% endif %}
+        </ul>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+             {% if user.is_authenticated %}
+              <li class="nav-item"><a class="nav-link" style="color:white" href="{% url 'profile' %}">Profile</a></li>
+               <li class="nav-item"><a class="nav-link" style="color:white" href="{% url 'logout' %}">Logout</a></li>
+             {% else %}
+                <li class="nav-item"><a class="nav-link" style="color:white" href="{% url 'login' %}">Sign In</a></li>
+              {% endif %}
+          </ul>
+        </div>
+      </div>
+</nav>
