@@ -1,0 +1,47 @@
+{% extends "data/base.html" %}
+{% block content %}
+
+<div class="col-xs-12 col-md-12 col-lg-12" style="padding:15px">
+  <h2>{{ athlete.nickname }}</h2>
+</div>
+  <div class="col-xs-12 col-md-12 col-lg-12 pad row" style="padding:15px;">
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <label>Session: {{ athlete.session.name }}</label>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <label>Age: {{ athlete.age }}</label>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <label>Foot Size: {{ athlete.foot_size }}</label>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <label>Weight: {{ athlete.weight }}</label>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-4">
+      <label>Height: {{ athlete.height }}</label>
+    </div>
+  </div>
+<div class="row">
+    <div class="col-xs-12 col-md-8 pad">
+        {% for sensor in sensors_of_athlete %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                    <a href="{% url 'edit-sensor' sensor.id %}" class="ref"><small class="text-muted">Edit</small></a>
+                    <a href="{% url 'del-sensor' sensor.id %}" class="pull-right ref"><small class="text-muted">Delete</small></a>
+                </div>
+                <h2>{{ sensor.position }}</h2>
+
+              </div>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="col-md-4 pad">
+        <div id="manage-sensor" class="col-xs-12 pad sticky-top">
+            <a href="{% url 'new-sensor' %}" class="btn btn-dark btn-lg btn-block">Add new sensor</a>
+            <a href="{% url 'assign-sensor' %}" class="btn btn-dark btn-lg btn-block">Assign sensor</a>
+            <a href="{% url 'edit-athlete' athlete.id %}" class="btn btn-dark btn-lg btn-block">Edit athlete</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

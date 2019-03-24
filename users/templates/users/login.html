@@ -1,0 +1,30 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="loginout" style="margin-top: 5%">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm">
+                <div class="col-xs-12 col-md-12 col-lg-12" align="center" style="padding:5px">
+                    <img src="/static/img/Adidas_logo.png" width="75" height="55" alt="Adidas">
+                </div>
+                <div class="content-section">
+                    <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 "align="center"> Log In</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-dark" style="" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+
+{% endblock content %}
+

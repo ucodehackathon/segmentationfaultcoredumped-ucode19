@@ -1,0 +1,130 @@
+.container{
+  height: 100%;
+}
+#header{
+  background-color: #1e1e1e;
+}
+#logo{
+  padding: 5px;
+}
+#home{
+  padding: 5px;
+  color: #FFFFFF;
+}
+#perfil{
+  padding: 2px;
+}
+
+.pad{
+  padding-top: 20px;
+}
+#delete_athlete{
+  font-size: 19px;
+}
+
+.small-ref a:hover {
+  color: #333;
+  text-decoration: none;
+}
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+.session_buttons{
+
+}
+.loginout {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#login{
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+}
+#submit_login{
+
+}
+#div_submit{
+  padding: 15px;
+}
+
+#foto_perfil{
+  border-style: solid;
+  border-width: 1px;
+}
+.card_profile {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title_profile {
+  color: grey;
+  font-size: 18px;
+}
+
+.banner_profile {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+}
+
+.a_profile {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}

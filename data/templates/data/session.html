@@ -1,0 +1,83 @@
+{% extends 'data/base.html' %}
+{% load markdown_deux_tags %}
+{% block content %}
+<div class="row">
+  <div class="col-xs-12 col-md-6 pad">
+    <div class="col-xs-12">
+      <label class="col-xs-12"><strong>Training session:</strong></label>
+    </div>
+    <div class="col-xs-12">
+        {{ session.training|markdown }}
+    </div>
+  </div>
+  <div class="col-xs-12 col-md-6 pad">
+    <div class="row">
+         <div class="col-xs-12 col-md-6">
+              <div class="col-xs-12">
+                <label>Temperature:   {{ session.temp }}</label>
+              </div>
+              <div class="col-xs-12">
+                <label>Weather:   {{ session.rained }}</label>
+              </div>
+        </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="col-xs-12">
+        <label>Humidity:   {{ session.hum }}</label>
+      </div>
+      <div class="col-xs-12">
+        <label>Surface:   {{ session.get_grass_display }}</label>
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-12 pad">
+      <div class="col-xs-12">
+        <label class="col-xs-12" class="subtitle-session"><strong>Additional Information</strong></label>
+      </div>
+      <div class="col-xs-12">
+          {{ session.additional_info|markdown }}
+      </div>
+    </div>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12 pad">
+        {% for athlete in athletes %}
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                    <a href="{% url 'edit-athlete' athlete.id %}" class="ref"><small class="text-muted">Edit</small></a>
+                    <a href="{% url 'del-athlete' athlete.id %}" class="pull-right ref"><small class="text-muted">Delete</small></a>
+                </div>
+                <h2><a class="article-title" href="{% url 'detail-athlete' athlete.id %}">{{ athlete.nickname }}</a></h2>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12">
+                            <label>Vest: {{ athlete.vest }}</label>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>Age: {{ athlete.age }} years</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="col-xs-12">
+                            <label>Weight: {{ athlete.weight }}kg</label>
+                        </div>
+                        <div class="col-xs-12">
+                            <label>Height: {{ athlete.height }}cm</label>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </article>
+        {% endfor %}
+    </div>
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="col-xs-12 col-md-4 col-lg-3 pull-right pad">
+      <a href="{% url 'new-athlete' %}" class="btn btn-dark btn-lg btn-block">Add Athlete</a>
+    </div>
+    <div class="col-xs-12 col-md-4 col-lg-3 pull-right pad">
+      <a id="modify-session" href="{% url 'edit-session' session.pk %}" class="btn btn-dark btn-lg btn-block">Modify Session</a>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}
